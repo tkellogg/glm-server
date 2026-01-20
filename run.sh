@@ -8,8 +8,4 @@ PORT="${GLM_PORT:-8000}"
 echo "Starting GLM server on port $PORT"
 echo "Model: $MODEL_PATH"
 
-uv run -m app.main \
-    --model-path "$MODEL_PATH" \
-    --model-type lm \
-    --port "$PORT" \
-    --max-concurrency 1
+uv run mlx_lm.server --model $MODEL_PATH --port $PORT
