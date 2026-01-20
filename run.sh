@@ -8,12 +8,8 @@ PORT="${GLM_PORT:-8000}"
 echo "Starting GLM server on port $PORT"
 echo "Model: $MODEL_PATH"
 
-python -m app.main \
+mlx_openai_server \
     --model-path "$MODEL_PATH" \
     --model-type lm \
-    --tool-call-parser glm4_moe \
-    --reasoning-parser glm4_moe \
-    --message-converter glm4_moe \
     --port "$PORT" \
-    --max-concurrency 1 \
-    --trust-remote-code
+    --max-concurrency 1
