@@ -8,7 +8,7 @@ PORT="${GLM_PORT:-8000}"
 echo "Starting GLM server on port $PORT"
 echo "Model: $MODEL_PATH"
 
-mlx_openai_server \
+uv run -m app.main \
     --model-path "$MODEL_PATH" \
     --model-type lm \
     --port "$PORT" \
