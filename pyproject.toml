@@ -1,0 +1,14 @@
+[project]
+name = "glm-server"
+version = "0.1.0"
+description = "OpenAI-compatible server for GLM-4.7-Flash on Apple Silicon"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mlx-openai-server>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
