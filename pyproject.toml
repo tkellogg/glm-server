@@ -5,7 +5,7 @@ description = "OpenAI-compatible server for GLM-4.7-Flash on Apple Silicon"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "mlx-lm>=0.30.5",
+    "mlx-lm",
 ]
 
 [project.optional-dependencies]
@@ -15,3 +15,6 @@ dev = [
 
 [tool.uv]
 prerelease = "allow"
+
+[tool.uv.sources]
+mlx-lm = { path = "../mlx-lm", editable = true }
