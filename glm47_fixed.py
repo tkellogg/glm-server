@@ -7,6 +7,10 @@ https://github.com/vllm-project/vllm/blob/main/vllm/tool_parsers/glm4_moe_tool_p
 
 Fix: Added null safety check for regex match before calling .group()
 See: https://github.com/ml-explore/mlx-lm/issues/XXX
+
+Install on Lumen:
+  cp glm47_fixed.py $(python -c "import mlx_lm; print(mlx_lm.__path__[0])")/tool_parsers/glm47.py
+  # Then restart mlx-lm.server
 """
 
 import ast
@@ -58,13 +62,13 @@ def _deserialize(value: str) -> Any:
 
 def parse_tool_call(text: str, tools: list[Any] | None = None):
     # FIX: Add null safety check for regex match
-    match = _func_name_regex.search(text)
-    if match is None:
+    func_name_match = _func_name_regex.search(text)
+    if func_name_match is None:
         raise ValueError(
             f"Invalid tool call format: expected '<arg_key>' delimiter in text. "
             f"Got: {text[:200]}{'...' if len(text) > 200 else ''}"
         )
-    func_name = match.group(1)
+    func_name = func_name_match.group(1)
 
     pairs = _func_arg_regex.findall(text)
     arg_dct = {}

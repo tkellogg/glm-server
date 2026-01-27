@@ -25,13 +25,13 @@ This occurs when GLM-4.7-Flash (or similar models) emits malformed tool call tex
 
 ```python
 def parse_tool_call(text: str, tools: list[Any] | None = None):
-    match = _func_name_regex.search(text)
-    if match is None:
+    func_name_match = _func_name_regex.search(text)
+    if func_name_match is None:
         raise ValueError(
             f"Invalid tool call format: expected '<arg_key>' delimiter in text. "
             f"Got: {text[:200]}{'...' if len(text) > 200 else ''}"
         )
-    func_name = match.group(1)
+    func_name = func_name_match.group(1)
     # ... rest of function unchanged
 ```
 
@@ -39,6 +39,34 @@ This provides:
 1. Null safety check before accessing `.group()`
 2. Clear error message with partial input for debugging
 3. `ValueError` instead of cryptic `AttributeError`
+
+## Error Bubbling
+
+When this `ValueError` is raised, it propagates up through the mlx-lm server and results in an HTTP 500 error. The error message appears in the server logs. Clients (like Synth Wave) will see the 500 status and can check server logs for the detailed error.
+
+To fully expose the error in the HTTP response body, the server would need try/catch around `parse_tools()` calls in `server.py` lines 1326, 1342, 1363. This is a separate enhancement.
+
+## Testing
+
+Run `python test_error_bubbling.py` in this directory to verify the fix:
+- Malformed text without delimiter → ValueError with clear message
+- Valid tool calls → Parse successfully
+- Empty text → ValueError
+
+## Installation (Local Testing)
+
+```bash
+# Find your mlx-lm install location
+MLX_PATH=$(python -c "import mlx_lm; print(mlx_lm.__path__[0])")
+
+# Backup original
+cp "$MLX_PATH/tool_parsers/glm47.py" "$MLX_PATH/tool_parsers/glm47.py.bak"
+
+# Install fix
+cp glm47_fixed.py "$MLX_PATH/tool_parsers/glm47.py"
+
+# Restart mlx-lm.server
+```
 
 ## Environment
 
