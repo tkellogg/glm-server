@@ -154,7 +154,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mlx-lm", specifier = ">=0.30.2" },
+    { name = "mlx-lm", specifier = ">=0.30.5" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
 ]
 provides-extras = ["dev"]
@@ -377,7 +377,7 @@ wheels = [
 
 [[package]]
 name = "mlx-lm"
-version = "0.30.4"
+version = "0.30.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
@@ -388,9 +388,9 @@ dependencies = [
     { name = "sentencepiece" },
     { name = "transformers" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6a/2a/0295dd3df39efa382f3645ca526693ce7b7ce049d231e1398548eac9734d/mlx_lm-0.30.4.tar.gz", hash = "sha256:e7776c49e6fdcc497bff90b61182024af4bb0d76b555e129716ad39bab322bac", size = 260024, upload-time = "2026-01-19T16:14:20.364Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0b/90/4469d9f75f196e6255f59a89441abe0079925d30a001462e1c1c4bc4e6a1/mlx_lm-0.30.5.tar.gz", hash = "sha256:9e6cb258c65b766c6af25cb90958aef40acab67139f05839eef19864cb3154f6", size = 262367, upload-time = "2026-01-25T15:29:30.125Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/e0/6a58531e408620b7fcc6e62fb61f0c32f6cab530cafb54ca233114784698/mlx_lm-0.30.4-py3-none-any.whl", hash = "sha256:b5a7f1a545fdcde63666edc13815f3eecfd7492fd065d31484c30f61b4e1cf83", size = 362986, upload-time = "2026-01-19T16:14:18.946Z" },
+    { url = "https://files.pythonhosted.org/packages/89/ba/66db6e1e5f1ef506655b562932f6bd8f72600116d5f31f92d71c1f200b3f/mlx_lm-0.30.5-py3-none-any.whl", hash = "sha256:a80bc8e3efdebe81813b0f6eb403fb66a7a15071e256f4e7102ada986acb75bb", size = 366716, upload-time = "2026-01-25T15:29:28.29Z" },
 ]
 
 [[package]]
@@ -841,7 +841,7 @@ wheels = [
 
 [[package]]
 name = "transformers"
-version = "5.0.0rc1"
+version = "5.0.0rc3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "filelock" },
@@ -856,9 +856,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typer-slim" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2f/33/c4d7a86f5a60fda56e72f90911ce859044ecdac1dcea4cf904c1eb20ecf2/transformers-5.0.0rc1.tar.gz", hash = "sha256:1fdde557b96ef8ea277c45b8e0d558f1e167fe28a98593f4c4aec0277e335821", size = 8208085, upload-time = "2025-12-11T17:21:23.486Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/a3/7c116a8d85f69ea7749cf4c2df79e64c35d028e5fc7ea0168f299d03b8c7/transformers-5.0.0rc3.tar.gz", hash = "sha256:a0315b92b7e087617ade42ec9e6e92ee7620541cc5d6a3331886c52cbe306f5c", size = 8388520, upload-time = "2026-01-14T16:49:02.952Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fb/74/fd8aef40d2bf2a15c0e02a0d867ebbf488ccca79fcf45efa51ec8e40c004/transformers-5.0.0rc1-py3-none-any.whl", hash = "sha256:8b9604700769872cab4280dbcde201f557e93f72ee5a85c4592275ab4f15d330", size = 9873024, upload-time = "2025-12-11T17:21:20.348Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/f2/ae2b8968764253bdf38a48dee3c299b8d0bedf7c8ffbe3449fca9bd95338/transformers-5.0.0rc3-py3-none-any.whl", hash = "sha256:383fad27f4f73092d330e45fae384681e5c8521e1dc1cf6cb1a297780e68bf2d", size = 10107087, upload-time = "2026-01-14T16:48:59.393Z" },
 ]
 
 [[package]]
